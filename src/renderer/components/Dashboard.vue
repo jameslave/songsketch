@@ -2,16 +2,12 @@
   <div>
     <v-toolbar/>
     <div class="columns viewport">
-      <transition
-        enter-active-class="slideInLeft"
-        leave-active-class="slideOutLeft">
-        <aside
-          v-if="showSongList"
-          class="column is-3 animated">
-          <v-song-list/>
-        </aside>
-      </transition>
-      <section class="column">
+      <aside class="column is-3">
+        <v-song-list/>
+      </aside>
+      <section
+        class="column"
+        style="padding: 3rem">
         <v-song-editor/>
       </section>
     </div>
@@ -33,9 +29,13 @@ export default {
   },
 
   computed: {
-    showSongList() {
-      return this.$store.state.ui.showSongList;
+    songListIsShown() {
+      return this.$store.state.ui.songListIsShown;
     },
+  },
+
+  mounted() {
+    this.$store.dispatch('getAudioDevices');
   },
 
   methods: {
@@ -43,9 +43,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.animated {
-  animation-duration: 500ms;
-}
-</style>

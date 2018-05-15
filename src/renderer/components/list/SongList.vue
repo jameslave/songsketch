@@ -43,8 +43,28 @@
 </template>
 
 <script>
+import { TweenLite, Power4 } from 'gsap';
+
 export default {
   name: 'SongList',
+
+  computed: {
+    songListIsShown() {
+      return this.$store.state.ui.songListIsShown;
+    },
+  },
+
+  watch: {
+    songListIsShown(shown) {
+      const x = shown ? 0 : -this.$el.offsetWidth;
+      TweenLite.to(this.$el, 0.5, { x, ease: Power4.easeOut });
+    },
+  },
+
+  mounted() {
+    const x = this.songListIsShown ? 0 : -this.$el.offsetWidth;
+    TweenLite.set(this.$el, { x });
+  },
 };
 </script>
 

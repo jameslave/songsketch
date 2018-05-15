@@ -2,7 +2,7 @@
   <nav class="navbar toolbar is-white">
     <div class="navbar-start">
       <a
-        :class="{'is-active': $store.state.ui.showSongList}"
+        :class="{'is-active': $store.state.ui.songListIsShown}"
         class="navbar-item"
         @click="$store.dispatch('toggleSongList')">
         <i class="fas fa-bars fa-fw"/>
