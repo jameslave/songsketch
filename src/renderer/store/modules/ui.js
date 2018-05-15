@@ -1,20 +1,20 @@
 const state = {
-  showSongList: true,
+  songListIsShown: true,
 };
 
 const mutations = {
   SHOW_SONG_LIST(state) {
-    state.showSongList = true;
+    state.songListIsShown = true;
   },
 
   HIDE_SONG_LIST(state) {
-    state.showSongList = false;
+    state.songListIsShown = false;
   },
 };
 
 const actions = {
   toggleSongList({ commit }) {
-    if (state.showSongList === true) commit('HIDE_SONG_LIST');
+    if (state.songListIsShown === true) commit('HIDE_SONG_LIST');
     else commit('SHOW_SONG_LIST');
   },
 };
