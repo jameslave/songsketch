@@ -1,8 +1,18 @@
 <template>
   <div id="app">
-    <router-view/>
+    <v-dashboard/>
   </div>
 </template>
+
+<script>
+import vDashboard from './components/Dashboard';
+
+export default {
+  components: {
+    vDashboard,
+  },
+};
+</script>
 
 <style>
 @import url("https://jenil.github.io/bulmaswatch/yeti/bulmaswatch.min.css");
